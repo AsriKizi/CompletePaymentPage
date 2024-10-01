@@ -6,9 +6,7 @@
     <title>Complete Payment</title>
     <script type="text/javascript">
         function completePayment() {
-            alert("Payment Completed Successfully!");
-            // Send message to Flutter to close WebView
-            FlutterWebViewChannel.postMessage('close');
+            result.postMessage('close');
         }
     </script>
 </head>
