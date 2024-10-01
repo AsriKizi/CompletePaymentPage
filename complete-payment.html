@@ -5,18 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Complete Payment</title>
     <script type="text/javascript">
-        function closeTab() {
-            window.close();
-        }
-
         function completePayment() {
             alert("Payment Completed Successfully!");
+            // Send message to Flutter to close WebView
+            FlutterWebViewChannel.postMessage('close');
         }
     </script>
 </head>
 <body>
     <h1>Complete Payment</h1>
     <button onclick="completePayment()">Complete Payment</button>
-    <button onclick="closeTab()">Close Browser</button>
 </body>
 </html>
