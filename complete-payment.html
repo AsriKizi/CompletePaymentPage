@@ -4,14 +4,119 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Complete Payment</title>
+    <style>
+        /* Styling to center the container and add other visual elements */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .transaction-detail {
+            margin-bottom: 15px;
+        }
+        .transaction-label {
+            font-weight: bold;
+            color: #555;
+        }
+        .transaction-value {
+            color: #000;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
     <script type="text/javascript">
+        // Mock data for dynamic display (you can replace this with real data)
+        var transactionData = {
+            title: "Maklumat Transaksi",
+            statusTransaksi: "Berjaya",
+            idTransaksiFPX: "FPX123456789",
+            tarikhMasaTransaksi: "2024-10-01 14:30:00",
+            noPesananPenjual: "ORD123456",
+            bankTerpilih: "Maybank",
+            jumlahTransaksi: "RM 500.00",
+            kenyataanTransaksi: "Transaksi telah selesai."
+        };
+
         function completePayment() {
             result.postMessage('close');
         }
+
+        // Function to populate transaction details dynamically
+        function populateTransactionDetails() {
+            document.getElementById('statusTransaksi').innerText = transactionData.statusTransaksi;
+            document.getElementById('idTransaksiFPX').innerText = transactionData.idTransaksiFPX;
+            document.getElementById('tarikhMasaTransaksi').innerText = transactionData.tarikhMasaTransaksi;
+            document.getElementById('noPesananPenjual').innerText = transactionData.noPesananPenjual;
+            document.getElementById('bankTerpilih').innerText = transactionData.bankTerpilih;
+            document.getElementById('jumlahTransaksi').innerText = transactionData.jumlahTransaksi;
+            document.getElementById('kenyataanTransaksi').innerText = transactionData.kenyataanTransaksi;
+        }
+
+        // Load transaction details when the page is ready
+        window.onload = populateTransactionDetails;
     </script>
 </head>
 <body>
-    <h1>Complete Payment</h1>
-    <button onclick="completePayment()">Complete Payment</button>
+    <div class="container">
+        <h1 id="transactionTitle">Maklumat Transaksi</h1>
+        <div class="transaction-detail">
+            <span class="transaction-label">Status Transaksi: </span>
+            <span id="statusTransaksi" class="transaction-value"></span>
+        </div>
+        <div class="transaction-detail">
+            <span class="transaction-label">ID Transaksi FPX: </span>
+            <span id="idTransaksiFPX" class="transaction-value"></span>
+        </div>
+        <div class="transaction-detail">
+            <span class="transaction-label">Tarikh & Masa Transaksi: </span>
+            <span id="tarikhMasaTransaksi" class="transaction-value"></span>
+        </div>
+        <div class="transaction-detail">
+            <span class="transaction-label">No. Pesanan Penjual: </span>
+            <span id="noPesananPenjual" class="transaction-value"></span>
+        </div>
+        <div class="transaction-detail">
+            <span class="transaction-label">Bank Terpilih: </span>
+            <span id="bankTerpilih" class="transaction-value"></span>
+        </div>
+        <div class="transaction-detail">
+            <span class="transaction-label">Jumlah Transaksi: </span>
+            <span id="jumlahTransaksi" class="transaction-value"></span>
+        </div>
+        <div class="transaction-detail">
+            <span class="transaction-label">Kenyataan Transaksi: </span>
+            <span id="kenyataanTransaksi" class="transaction-value"></span>
+        </div>
+
+        <!-- Button to complete the payment -->
+        <button onclick="completePayment()">Selesai Pembayaran</button>
+    </div>
 </body>
 </html>
