@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Complete Payment</title>
     <style>
-        /* Styling to center the container and add other visual elements */
         body {
             display: flex;
             justify-content: center;
@@ -52,7 +51,7 @@
         }
     </style>
     <script type="text/javascript">
-        // Mock data for dynamic display (you can replace this with real data)
+        // Demo data
         var transactionData = {
             title: "Maklumat Transaksi",
             statusTransaksi: "Berjaya",
@@ -68,7 +67,7 @@
             result.postMessage('close');
         }
 
-        // Function to populate transaction details dynamically
+        // Function to populate transaction details
         function populateTransactionDetails() {
             document.getElementById('statusTransaksi').innerText = transactionData.statusTransaksi;
             document.getElementById('idTransaksiFPX').innerText = transactionData.idTransaksiFPX;
@@ -79,7 +78,6 @@
             document.getElementById('kenyataanTransaksi').innerText = transactionData.kenyataanTransaksi;
         }
 
-        // Load transaction details when the page is ready
         window.onload = populateTransactionDetails;
     </script>
 </head>
@@ -114,8 +112,6 @@
             <span class="transaction-label">Kenyataan Transaksi: </span>
             <span id="kenyataanTransaksi" class="transaction-value"></span>
         </div>
-
-        <!-- Button to complete the payment -->
         <button onclick="completePayment()">Selesai Pembayaran</button>
     </div>
 </body>
